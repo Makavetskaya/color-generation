@@ -1,11 +1,10 @@
-const cols = document.querySelectorAll('.color')
+const colorBlock = document.querySelectorAll('.color')
+const cols = document.querySelectorAll('.col')
 const hexCode = document.querySelectorAll('p')
+const wrapper = document.querySelector('.wrapper')
 
-document.addEventListener('keydown', e =>{
-    if(e.code.toLowerCase() === 'Enter' || e.code.toLowerCase() === 'Space'){
-       upDateColors()
-    }
-})
+console.log(cols)
+
 
 const generationColors = ()=>{
     let hexCode = '0123456789ABCDEF'
@@ -17,10 +16,16 @@ const generationColors = ()=>{
      
 }
 
+//// pressing spacebar or enter changes color
+document.addEventListener('keydown', e =>{
+     if(e.code.toLowerCase() === 'enter' || e.code.toLowerCase() === 'space'){
+        upDateColors()
+     }
+})
 
-
+///// changes the color all elements
 const upDateColors = ()=>{
-    cols.forEach(el =>{
+    colorBlock.forEach(el =>{
         let color = generationColors()
         el.style.backgroundColor = color
         
@@ -31,3 +36,15 @@ const upDateColors = ()=>{
     })
 }
 upDateColors()
+
+///// changes the color of only the clicked element
+
+document.addEventListener('click', e=>{
+    for( let i = 0; i<colorBlock.length; i++){
+        if(e.target === colorBlock[i]){
+            colorBlock[i].style.backgroundColor = generationColors()
+            hexCode[i].textContent =  generationColors()
+        }
+    }
+})
+

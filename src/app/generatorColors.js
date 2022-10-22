@@ -1,8 +1,10 @@
 const colorBlock = document.querySelectorAll('.color')
 const cols = document.querySelectorAll('.col')
-const hexCode = document.querySelectorAll('p')
+const hexCode = document.querySelectorAll('.hex')
 const wrapper = document.querySelector('.wrapper')
-const copy = document.querySelectorAll('.copied')
+const colorInf = document.querySelectorAll('.color-inf')
+const btnRandome = document.querySelector('.btn-randome')
+const icons = document.querySelectorAll('.fa-solid')
 
 console.log(cols)
 
@@ -19,7 +21,7 @@ const generationColors = ()=>{
 
 //// pressing spacebar or enter changes color
 document.addEventListener('keydown', e =>{
-     if(e.code.toLowerCase() === 'enter' || e.code.toLowerCase() === 'space'){
+     if(e.code.toLowerCase() === 'enter' && e.code.toLowerCase() === 'space'){
         upDateColors()
      }
 })
@@ -39,7 +41,9 @@ const upDateColors = ()=>{
 upDateColors()
 
 ///// changes the color of only the clicked element and copy hexCode
-
+btnRandome.addEventListener('click',()=>{
+    upDateColors()
+})
 document.addEventListener('click', e =>{
     let currElem = e.target
     for( let i = 0; i < colorBlock.length; i++){
@@ -48,7 +52,7 @@ document.addEventListener('click', e =>{
             hexCode[i].textContent =  generationColors()
         }
     }
-    if (currElem.classList.contains('code')){
+    if (currElem.classList.contains('hex')){
         return copyhexCode(currElem.textContent)
        
     }
@@ -64,19 +68,19 @@ copyhexCode()
 
 
 document.addEventListener('mouseover',e=>{
-    for( let i = 0; i <hexCode.length; i++){
-        if(e.target === hexCode[i]){
-            copy[i].classList.remove('hide')
+    for( let i = 0; i <colorBlock.length; i++){
+        if(e.target === colorBlock[i] || e.target === hexCode[i] || e.target === icons[i] ){
+            colorInf[i].classList.remove('inactive')
         }else{
-            copy[i].classList.add('hide')
+            colorInf[i].classList.add('inactive')
         }
     }
 })
-document.addEventListener('click',e=>{
-    for( let i = 0; i <hexCode.length; i++){
-        if(e.target === hexCode[i]){
-            copy[i].textContent = 'Copied'
-        } 
+// document.addEventListener('click',e=>{
+//     for( let i = 0; i <hexCode.length; i++){
+//         if(e.target === hexCode[i]){
+//             copy[i].textContent = 'Copied'
+//         } 
         
-    }
-})
+//     }
+// })

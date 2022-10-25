@@ -4,7 +4,8 @@ const hexCode = document.querySelectorAll('.hex')
 const wrapper = document.querySelector('.wrapper')
 const colorInf = document.querySelectorAll('.color-inf')
 const btnRandome = document.querySelector('.btn-randome')
-const icons = document.querySelectorAll('.fa-solid')
+const copy = document.querySelectorAll('.fa-copy')
+const drip = document.querySelectorAll('.fa-fill-drip')
 
 console.log(cols)
 
@@ -65,22 +66,43 @@ const copyhexCode = (text) =>{
 }
 copyhexCode()
 
+// cols.forEach(el,()=>{
+//     el.addEventListener('mouseover',e =>{
+//         for( let i = 0; i <colorBlock.length; i++){
+//             if(e.target === colorBlock[i] ){
+//                 colorInf[i].classList.remove('inactive')
+//             }else{
+//                 colorInf[i].classList.add('inactive')
+//             }
+//         }
+//     })
+// })
 
 
-document.addEventListener('mouseover',e=>{
+const handle = (e)=>{
     for( let i = 0; i <colorBlock.length; i++){
-        if(e.target === colorBlock[i] || e.target === hexCode[i] || e.target === icons[i] ){
+         if(e.target === colorBlock[i]
+              || e.target === hexCode[i]
+              || e.target === copy[i]
+              || e.target === drip[i]){
             colorInf[i].classList.remove('inactive')
-        }else{
-            colorInf[i].classList.add('inactive')
-        }
-    }
-})
-// document.addEventListener('click',e=>{
-//     for( let i = 0; i <hexCode.length; i++){
-//         if(e.target === hexCode[i]){
-//             copy[i].textContent = 'Copied'
-//         } 
+            }else{
+                colorInf[i].classList.add('inactive')
+                    }
+                }
+}
+
+
+// colorBlock.forEach(coll =>{coll.addEventListener('mouseover',handle)})
+document.addEventListener('mouseover',handle)
+
+    
+//     for( let i = 0; i <colorBlock.length; i++){
         
+//         if(e.target.contains(color) ){
+//             colorInf[i].classList.remove('inactive')
+//         }else{
+//             colorInf[i].classList.add('inactive')
+//         }
 //     }
 // })

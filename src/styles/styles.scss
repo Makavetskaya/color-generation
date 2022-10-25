@@ -111,10 +111,10 @@ body{
                   
                         
                     }
-                    .icons{
+                    .fa-copy{
                         position: absolute;
                         bottom: 23px;
-                        left: 64px;
+                        left: 65px;
                         font-size: 13px;
                         font-weight: 600;
                         letter-spacing: 1.7px;
@@ -122,11 +122,27 @@ body{
                         text-transform: uppercase;
                         box-sizing: border-box;
                         color: #ffffff80;
-                        .fa-fill-drip{
-                            position: absolute;
-                            left: 60px;
+                        transition: all .15s ease-in;
+                        &:hover{
+                          color:#ffffff;
                         }
-             
+                      }
+                      .fa-fill-drip{
+                        position: absolute;
+                        bottom: 23px;
+                        right:  60px;
+                        font-size: 13px;
+                        font-weight: 600;
+                        letter-spacing: 1.7px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        box-sizing: border-box;
+                        color: #ffffff80;
+                        transition: all .15s ease-in;
+                        &:hover{
+                          color:#ffffff;
+                        }
+                        
                     }
 
                 }

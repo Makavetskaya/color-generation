@@ -6,8 +6,8 @@ const colorInf = document.querySelectorAll('.color-inf')
 const btnRandome = document.querySelector('.btn-randome')
 const copy = document.querySelectorAll('.fa-copy')
 const drip = document.querySelectorAll('.fa-fill-drip')
+const tooltip =  document.querySelectorAll('.tooltip')
 
-console.log(cols)
 
 
 const generationColors = ()=>{
@@ -21,6 +21,7 @@ const generationColors = ()=>{
 }
 
 //// pressing spacebar or enter changes color
+
 document.addEventListener('keydown', e =>{
      if(e.code.toLowerCase() === 'enter' && e.code.toLowerCase() === 'space'){
         upDateColors()
@@ -28,6 +29,7 @@ document.addEventListener('keydown', e =>{
 })
 
 ///// changes the color all elements
+
 const upDateColors = ()=>{
     colorBlock.forEach(el =>{
         let color = generationColors()
@@ -42,6 +44,7 @@ const upDateColors = ()=>{
 upDateColors()
 
 ///// changes the color of only the clicked element and copy hexCode
+
 btnRandome.addEventListener('click',()=>{
     upDateColors()
 })
@@ -66,20 +69,10 @@ const copyhexCode = (text) =>{
 }
 copyhexCode()
 
-// cols.forEach(el,()=>{
-//     el.addEventListener('mouseover',e =>{
-//         for( let i = 0; i <colorBlock.length; i++){
-//             if(e.target === colorBlock[i] ){
-//                 colorInf[i].classList.remove('inactive')
-//             }else{
-//                 colorInf[i].classList.add('inactive')
-//             }
-//         }
-//     })
-// })
 
 
-const handle = (e)=>{
+
+const showColorInf = (e)=>{
     for( let i = 0; i <colorBlock.length; i++){
          if(e.target === colorBlock[i]
               || e.target === hexCode[i]
@@ -92,17 +85,45 @@ const handle = (e)=>{
                 }
 }
 
+document.addEventListener('mouseover',showColorInf)
 
-// colorBlock.forEach(coll =>{coll.addEventListener('mouseover',handle)})
-document.addEventListener('mouseover',handle)
+
+
+
+const showTooltip  =(e)=>{
+    for( let i = 0; i <copy.length; i++){
+        if(e.target === copy[i]){
+           tooltip[i].classList.remove('inactive')
+           }else{
+            tooltip[i].classList.add('inactive')
+                   }
+               }
+}
+
+
+document.addEventListener('mouseover',showTooltip )
+
+
+
+
+
+// copy.forEach(el=>{
+//     el.addEventListener('mouseover', (e)=>{
+//         console.log(e.target)
+//         if(e.target == el){
+//             tooltip.forEach(el=>{
+//                el.style.display = 'block'
+//             })
+//         }else{
+//             tooltip.forEach(el=>{
+//                 el.style.display = 'none'
+//              })
+//         }
+        
+//     })
+// })
+
+
+
 
     
-//     for( let i = 0; i <colorBlock.length; i++){
-        
-//         if(e.target.contains(color) ){
-//             colorInf[i].classList.remove('inactive')
-//         }else{
-//             colorInf[i].classList.add('inactive')
-//         }
-//     }
-// })

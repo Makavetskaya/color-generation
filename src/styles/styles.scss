@@ -97,7 +97,7 @@ body{
                 }
                 .color-inf{
                     transition: all .15s ease-in;
-                    span{
+                    .hex{
                         position: absolute;
                         top: 60px;
                         left: 64px;
@@ -113,7 +113,7 @@ body{
                     }
                     .fa-copy{
                         position: absolute;
-                        bottom: 23px;
+                        bottom: 35px;
                         left: 65px;
                         font-size: 13px;
                         font-weight: 600;
@@ -129,7 +129,7 @@ body{
                       }
                       .fa-fill-drip{
                         position: absolute;
-                        bottom: 23px;
+                        bottom: 35px;
                         right:  60px;
                         font-size: 13px;
                         font-weight: 600;
@@ -143,6 +143,27 @@ body{
                           color:#ffffff;
                         }
                         
+                    }
+                    .tooltip{
+                      position: absolute;
+                      left: 20px;
+                      bottom: 7px;
+                      padding: 4px 5px;
+                      border-radius: 4px;
+                      font-size: 10px;
+                      background-color: #000000b3;
+                      color:#ffffff;
+                      transition: all .15s ease-in;
+                      &::after{
+                        content: '';
+                        position: absolute;
+                        border: 4px solid transparent;
+                        border-bottom: 4px solid #000000b3;
+                        bottom: 22.8px;
+                        right: 44px;
+
+                      }
+
                     }
 
                 }
